@@ -5,6 +5,9 @@ Foundry
 * Private Repo: https://github.com/pratraut/hats_ctf_challenge2
 * GitFront link to share above repo: https://gitfront.io/r/savi0ur/FXrAoJA8szhF/hats-ctf-challenge2-gitfront/
 
+## Contract: 
+https://goerli.etherscan.io/address/0x8043e6836416d13095567ac645be7C629715885c#code
+
 ## Solution:
 
 * Contract's `ERC4626ETH.sol` function - `withdraw` OR `redeem` is vulnerable to re-entrancy.
