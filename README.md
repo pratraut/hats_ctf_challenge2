@@ -138,7 +138,7 @@ contract CTFTest is Test {
         // Loading vault with 1 ETH
         vm.deal(victim, 1 ether);
         // Attackers EOA Address
-        address attacker_eoa = 0xF5BED21BD285CBe352737F686766cCC19BeE7acC;
+        address attacker_eoa = [ATTACKER_EOA];
         // Loading attackers EOA with 1 ETH
         vm.deal(attacker_eoa, 1 ether);
         // All calls will go from attackers EOA
@@ -170,7 +170,7 @@ Logs:
   Balance before victim:       1000000000000000000
   Balance before attacker EOA: 1000000000000000000
   Balance before attacker:     1000000000000000000
-  Flag Holder = 0xF5BED21BD285CBe352737F686766cCC19BeE7acC
+  Flag Holder = [ATTACKER_EOA]
   Balance after victim:       0
   Balance after attacker EOA: 0
   Balance after attacker:     0
